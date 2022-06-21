@@ -1,7 +1,22 @@
 import NextImage from "next/image"
 import NextLink from "next/link"
-import { Box, List, ListItem, ListIcon, Divider, Center, LinkBox, LinkOverlay } from "@chakra-ui/layout"
-import { MdHome, MdSearch, MdLibraryMusic, MdPlaylistAdd, MdFavorite } from "react-icons/md"
+import {
+  Box,
+  List,
+  ListItem,
+  ListIcon,
+  Divider,
+  Center,
+  LinkBox,
+  LinkOverlay
+} from "@chakra-ui/layout"
+import {
+  MdHome,
+  MdSearch,
+  MdLibraryMusic,
+  MdPlaylistAdd,
+  MdFavorite
+} from "react-icons/md"
 import { usePlaylist } from "../lib/hooks"
 
 const navMenu = [
@@ -39,7 +54,13 @@ const Sidebar = () => {
   const { playlists } = usePlaylist()
 
   return (
-    <Box width="100%" height="calc(100vh - 100px)" paddingX="5px" bgColor="black" color="gray">
+    <Box
+      width="100%"
+      height="calc(100vh - 100px)"
+      paddingX="5px"
+      bgColor="black"
+      color="gray"
+    >
       <Box paddingY="20px" height="100%">
         <Box width="120px" marginBottom="20px" paddingX="20px">
           <NextImage src="/trax-logo.svg" height={60} width={120} />
@@ -51,7 +72,11 @@ const Sidebar = () => {
                 <LinkBox>
                   <NextLink href={menuItem.route} passHref>
                     <LinkOverlay>
-                      <ListIcon as={menuItem.icon} color="white" marginRight="20px" />
+                      <ListIcon
+                        as={menuItem.icon}
+                        color="white"
+                        marginRight="20px"
+                      />
                       {menuItem.name}
                     </LinkOverlay>
                   </NextLink>
@@ -67,7 +92,11 @@ const Sidebar = () => {
                 <LinkBox>
                   <NextLink href={menuItem.route} passHref>
                     <LinkOverlay>
-                      <ListIcon as={menuItem.icon} color="white" marginRight="20px" />
+                      <ListIcon
+                        as={menuItem.icon}
+                        color="white"
+                        marginRight="20px"
+                      />
                       {menuItem.name}
                     </LinkOverlay>
                   </NextLink>
