@@ -1,18 +1,18 @@
-import GradientLayout from "../../components/gradientLayout"
-import SongTable from "../../components/songTable"
-import { validateToken } from "../../lib/auth"
-import prisma from "../../lib/prisma"
+import GradientLayout from '../../components/gradientLayout'
+import SongTable from '../../components/songTable'
+import { validateToken } from '../../lib/auth'
+import prisma from '../../lib/prisma'
 
 const getBGColor = id => {
   const colors = [
-    "red",
-    "green",
-    "blue",
-    "orange",
-    "purple",
-    "gray",
-    "teal",
-    "yellow"
+    'red',
+    'green',
+    'blue',
+    'orange',
+    'purple',
+    'gray',
+    'teal',
+    'yellow'
   ]
 
   return colors[id - 1] || colors[Math.floor(Math.random() * colors.length)]
@@ -38,11 +38,11 @@ export const getServerSideProps = async ({ query, req }) => {
   let user
 
   try {
-    user = validateToken(req.cookies.SPOTIFY_CLONE_ACCESS_TOKEN)
+    user = validateToken(req.cookies[process.env.TOKEN])
   } catch (error) {
     return {
       permanent: false,
-      destination: "/signin"
+      destination: '/signin'
     }
   }
 

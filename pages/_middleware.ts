@@ -1,13 +1,13 @@
-import { NextResponse } from "next/server"
+import { NextResponse } from 'next/server'
 
 const signedInPages = ['/', '/playlist', '/library']
 
 export default function middleware(req) {
-    if (signedInPages.find(p => p === req.nextUrl.pathname)) {
-        const token = req.cookies.SPOTIFY_CLONE_ACCESS_TOKEN
+  if (signedInPages.find(p => p === req.nextUrl.pathname)) {
+    const token = req.cookies[process.env.TOKEN]
 
-        if (!token) {
-            return NextResponse.redirect('/signin')
-        }
+    if (!token) {
+      return NextResponse.redirect('/signin')
     }
+  }
 }
